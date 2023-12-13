@@ -6,7 +6,7 @@
 /*   By: sel-hasn <sel-hasn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 12:42:09 by sel-hasn          #+#    #+#             */
-/*   Updated: 2023/12/13 17:11:07 by sel-hasn         ###   ########.fr       */
+/*   Updated: 2023/12/13 17:25:35 by sel-hasn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*line(char *s)
 		i++;
 	line = (char *)malloc(sizeof(char) * (i + 1));
 	if (!line)
-		return (free(s), NULL);
+		return (NULL);
 	i = 0;
 	while (s[i] != '\n' && s[i] != '\0')
 	{
@@ -43,7 +43,7 @@ char	*rest_of_str(char *s)
 {
 	int		i;
 	int		j;
-	char	*str;
+	char	*rst;
 
 	i = 0;
 	j = 0;
@@ -55,17 +55,17 @@ char	*rest_of_str(char *s)
 		i++;
 	while (s[i + j] != '\0')
 		j++;
-	str = ft_substr(s, i, j);
-	if (!str)
-		return (free(s), NULL);
-	free (s);
-	return (str);
+	rst = ft_substr(s, i, j);
+	if (!rst)
+		return (NULL);
+	free(s);
+	return (rst);
 }
 
-char	*read_line(int fd, char *s)
+char	*read_line(char *s, int fd)
 {
 	char	*buffer;
-	ssize_t	x;
+	ssize_t	y;
 
 	if (!s)
 	{
@@ -76,13 +76,13 @@ char	*read_line(int fd, char *s)
 	buffer = (char *)malloc(sizeof(char) * ((size_t)BUFFER_SIZE + 1));
 	if (!buffer)
 		return (NULL);
-	x = 1;
-	while (ft_newline(s) == 0 && x != 0)
+	y = 1;
+	while (ft_newline(s) == 0 && y != 0)
 	{
-		x = read(fd, buffer, BUFFER_SIZE);
-		if (x == -1)
+		y = read(fd, buffer, BUFFER_SIZE);
+		if (y == -1)
 			return (free(s), free(buffer), NULL);
-		buffer[x] = '\0';
+		buffer[y] = '\0';
 		s = ft_strjoin(s, buffer);
 		if (!s)
 			return (free(s), free(buffer), NULL);
@@ -93,14 +93,14 @@ char	*read_line(int fd, char *s)
 
 char	*get_next_line(int fd)
 {
-	static char	*s;
-	char		*str;
+	static char		*s;
+	char			*str;
 
 	if (fd < 0 || fd > 10240 || BUFFER_SIZE <= 0)
 		return (NULL);
-	s = read_line(fd, s);
+	s = read_line(s, fd);
 	if (!s)
-		return (free(s), NULL);
+		return (NULL);
 	str = line(s);
 	s = rest_of_str(s);
 	return (str);

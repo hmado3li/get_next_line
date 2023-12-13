@@ -6,7 +6,7 @@
 /*   By: sel-hasn <sel-hasn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 12:22:21 by sel-hasn          #+#    #+#             */
-/*   Updated: 2023/12/13 17:11:32 by sel-hasn         ###   ########.fr       */
+/*   Updated: 2023/12/13 17:23:10 by sel-hasn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 char	*get_next_line(int fd);
 char	*line(char *s);
 char	*rest_of_str(char *s);
-char	*read_line(int fd, char *s);
+char	*read_line(char *s, int fd);
 size_t	ft_strlen(const char *s);
 int		ft_newline(char *s);
 char	*ft_strdup(const char *s);

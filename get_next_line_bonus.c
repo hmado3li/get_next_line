@@ -6,7 +6,7 @@
 /*   By: sel-hasn <sel-hasn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 16:39:18 by sel-hasn          #+#    #+#             */
-/*   Updated: 2023/12/13 17:11:48 by sel-hasn         ###   ########.fr       */
+/*   Updated: 2023/12/13 17:24:54 by sel-hasn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ char	*rest_of_str(char *s)
 	if (!rst)
 		return (NULL);
 	free(s);
-	s = NULL;
 	return (rst);
 }
 
