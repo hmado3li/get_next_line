@@ -5,8 +5,8 @@ The get_next_line project is part of the curriculum at 42, where the objective i
 ## Project Goals
 The function `get_next_line` is designed to:
 
-- **Read from a file descriptor and return a line each time it’s called.
-- **Handle various edge cases, such as multiple calls to read from a file and reading from standard input.
+- Read from a file descriptor and return a line each time it’s called.
+- Handle various edge cases, such as multiple calls to read from a file and reading from standard input.
 
 ## Key Concepts Learned
 ### Memory Leaks
