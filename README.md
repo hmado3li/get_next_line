@@ -29,7 +29,7 @@ Usage
 To use `get_next_line`, include the header and call it with a file descriptor as the parameter. Each call to `get_next_line` returns the next line from the file until it reaches the end of the file (EOF).
 
 ```c
-Copy code
+//Copy code
 #include "get_next_line.h"
 
 int main(void)
